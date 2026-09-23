@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blynk Web Dashboard - L1 & L2</title>
+    <!-- Memanggil file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-title">
+            <h1>WEB DASHBOARD IOT</h1>
+            <p>Relay & LED Control</p>
+        </div>
+        <div class="status-badge">
+            <div class="dot"></div> Terhubung ke Blynk
+        </div>
+    </header>
+
+    <div class="dashboard-grid">
+        <!-- WIDGET L1 (RELAY - V0) -->
+        <div class="card" id="card-L1">
+            <div class="card-header">
+                <span class="card-title">L1 (Relay)</span>
+                <span class="card-icon">🔌</span>
+            </div>
+            <div class="btn-group">
+                <!-- Mengirim nilai 0 untuk ON (Active LOW) -->
+                <button class="btn" id="btn-L1-on" onclick="controlBlynk(0, 0)">ON</button>
+                <!-- Mengirim nilai 1 untuk OFF -->
+                <button class="btn" id="btn-L1-off" onclick="controlBlynk(0, 1)">OFF</button>
+            </div>
+        </div>
+
+        <!-- WIDGET L2 (LED ESP8266 - V1) -->
+        <div class="card" id="card-L2">
+            <div class="card-header">
+                <span class="card-title">L2 (LED)</span>
+                <span class="card-icon">💡</span>
+            </div>
+            <div class="btn-group">
+                <!-- Mengirim nilai 0 untuk ON (Active LOW) -->
+                <button class="btn" id="btn-L2-on" onclick="controlBlynk(1, 0)">ON</button>
+                <!-- Mengirim nilai 1 untuk OFF -->
+                <button class="btn" id="btn-L2-off" onclick="controlBlynk(1, 1)">OFF</button>
+            </div>
+        </div>
+
+        <!-- TERMINAL LOG -->
+        <div class="terminal" id="terminal">
+            <div class="terminal-line info">[SISTEM] Menghubungkan ke Blynk Cloud API...</div>
+            <div class="terminal-line">[SISTEM] Mode Active LOW terdeteksi. Menunggu perintah...</div>
+        </div>
+    </div>
+
+    <!-- Memanggil file JavaScript di akhir body -->
+    <script src="script.js"></script>
+</body>
+</html>
